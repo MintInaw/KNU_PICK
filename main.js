@@ -219,9 +219,6 @@ if (dateEl) {
 /* ════════════════════════════════════════════════
    페이지 전환
 ════════════════════════════════════════════════ */
-/* ════════════════════════════════════════════════
-   페이지 전환
-════════════════════════════════════════════════ */
 function showPage(pageId, el) {
   // 모든 섹션 숨기기
   document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
@@ -518,7 +515,6 @@ function startTimer() {
   }, 1000);
 }
 
-// ✅ 시간 초과 처리 함수 (이것도 빠져있었습니다!)
 // ✅ 시간 초과 처리 함수
 function handleTimeOut() {
   if (qAnswered) return;
@@ -570,14 +566,6 @@ function loadQuestion() {
 
 /** 지도 클릭 이벤트 처리 */
 function handleQuizClick(e) {
-  // ✅ 좌표 추출 코드 — 다 따면 아래 7줄 삭제
-  const _r = e.currentTarget.getBoundingClientRect();
-  const _x = (((e.clientX - _r.left) / _r.width) * 100).toFixed(1);
-  const _y = (((e.clientY - _r.top) / _r.height) * 100).toFixed(1);
-  const _el = document.getElementById('coord-display');
-  if (_el) { _el.style.display='block'; _el.textContent=`left:${_x}, top:${_y}`; }
-  navigator.clipboard?.writeText(`{ left:${_x}, top:${_y}, width:6, height:6 }`);
-  // ✅ 여기까지
   if (qAnswered) return;
   
   clearInterval(timerInterval);
@@ -653,7 +641,7 @@ function checkQuizResult() {
       // 60점 미만 무한 지옥
       else {
         completeTitle.textContent = "불합격 😭";
-        completeDesc.textContent = `${qScore}점... 60점을 넘을 때까지 끝낼 수 없습니다!`;
+        completeDesc.textContent = `${qScore}점... 아직 학교 지리가 익숙하지 않나 보군요!`;
         completeBtn.textContent = "다시 풀기 (무한 반복)";
       }
     }, 2000);
@@ -711,7 +699,6 @@ function renderMealCard(data) {
   }
 
   const price = (data.price || 5000).toLocaleString();
-  // ✅ 수정1: breakfast_takeout 추가
   const breakfast         = (data.breakfast || []).filter(s => !s.startsWith('['));
   const breakfast_takeout = (data.breakfast_takeout || []).filter(s => !s.startsWith('['));
   const lunch  = data.lunch  || [];
