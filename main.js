@@ -533,7 +533,7 @@ function handleTimeOut() {
   box.style.display = 'block';
 
   const tipEl = document.getElementById('q-tip');
-  tipEl.textContent           = '⏰ 시간 초과! 초록 박스가 정답 위치입니다.';
+  tipEl.textContent           = '⏰ 시간 초과! 파란 박스가 정답 위치입니다.';
   tipEl.style.background      = '#fff1f2';
   tipEl.style.borderLeftColor = '#ef4444';
   tipEl.style.color           = '#dc2626';
@@ -621,7 +621,7 @@ function handleQuizClick(e) {
     tipEl.style.borderLeftColor = '#22c55e';
     tipEl.style.color           = '#16a34a';
   } else {
-    tipEl.textContent           = '❌ 아쉽네요! 초록 박스가 정답 위치입니다.';
+    tipEl.textContent           = '❌ 아쉽네요! 파란 박스가 정답 위치입니다.';
     tipEl.style.background      = '#fff1f2';
     tipEl.style.borderLeftColor = '#ef4444';
     tipEl.style.color           = '#dc2626';
