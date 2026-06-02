@@ -613,9 +613,9 @@ function handleQuizClick(e) {
     tipEl.style.color           = '#16a34a';
   } else {
     tipEl.textContent           = '❌ 아쉽네요! 초록 박스가 정답 위치입니다.';
-    tipEl.style.background      = '#3b82f6';
-    tipEl.style.borderLeftColor = '#3b82f6';
-    tipEl.style.color           = '#3b82f6';
+    tipEl.style.background      = '#fff1f2';
+    tipEl.style.borderLeftColor = '#ef4444';
+    tipEl.style.color           = '#dc2626';
   }
   tipEl.style.display = 'block';
 
