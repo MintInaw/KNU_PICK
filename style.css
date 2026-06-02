@@ -232,7 +232,7 @@ a { color: var(--primary); text-decoration: none; transition: 0.2s; }
 }
 .quiz-answer-area {
   position: absolute; border: 3px dashed #22c55e;
-  background: rgba(34,197,94,0.15); border-radius: 12px; pointer-events: none;
+  background: rgba(245, 158, 11, 0.2); border-radius: 12px; pointer-events: none;
 }
 .quiz-complete { text-align: center; padding: 3rem; }
 .quiz-tip-box {
