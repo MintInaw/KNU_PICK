@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>경국픽(KNU Pick) - 신입생 정보 허브</title>
+
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bf3a93856f9de70a5c8eff27e35096df&libraries=services"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="wrapper">
+
+    <header id="header" class="alt">
+      <span class="logo">경국<strong>픽.</strong></span>
+      <h1>국립경국대학교 안동캠퍼스</h1>
+      <p>신입생을 위한 완벽한 캠퍼스 정보 허브</p>
+      <div id="today-date" class="header-date"></div>
+    </header>
+
+    <nav id="nav">
+      <ul>
+        <li><a class="active" onclick="showPage('home', this)">홈 (대시보드)</a></li>
+        <li><a onclick="showPage('map', this)">상권 지도</a></li>
+        <li><a onclick="showPage('campus-game', this)">캠퍼스 퀴즈</a></li>
+      </ul>
+    </nav>
+
+    <div id="main">
+
+      <section id="home" class="main page-section active">
+        <header class="major">
+          <h2>반가워요, 신입생 여러분! 👋</h2>
+          <p>학교 생활이 막막할 땐 '경국픽'에서 정답을 찾아보세요.</p>
+        </header>
+
+        <div class="quick-links">
+          <a href="https://sugang.gknu.ac.kr/login" target="_blank" class="quick-btn"><div class="quick-icon">📚</div><span>수강신청</span></a>
+          <a href="https://login.gknu.ac.kr/sso/auth?client_id=sso_client" target="_blank" class="quick-btn"><div class="quick-icon">💻</div><span>GKNU포털</span></a>
+          <a href="https://eca.gknu.ac.kr/" target="_blank" class="quick-btn"><div class="quick-icon">📖</div><span>비교과</span></a>
+          <a href="https://dorm.gknu.ac.kr/andong" target="_blank" class="quick-btn"><div class="quick-icon">🏠</div><span>생활관</span></a>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="box">
+            <h3>💡 오늘의 꿀팁</h3>
+            <div id="random-tip" class="tip-box">로딩 중...</div>
+            <p class="tip-note">* 10초마다 새로운 팁이 나타납니다.</p>
+          </div>
+
+          <div class="box">
+            <h3>🍚 학생회관 학식</h3>
+            <div class="meal-item"><span>중식: 돈까스 &amp; 크림스프</span><strong>4,500원</strong></div>
+            <div class="meal-item"><span>석식: 김치볶음밥 &amp; 계란프라이</span><strong>4,000원</strong></div>
+            <div class="meal-item"><span>일품: 잔치국수</span><strong>3,500원</strong></div>
+          </div>
+
+          <div class="box">
+            <h3>⏰ 나의 시간표 (화)</h3>
+            <div class="timeline">
+              <div class="time-item">
+                <span class="time">09:00</span>
+                <div class="subject">대학영어 1 <span>인문학관 102호</span></div>
+              </div>
+              <div class="time-item active">
+                <span class="time">13:00</span>
+                <div class="subject">C프로그래밍 기초 <span>공학1호관 204호</span></div>
+              </div>
+              <div class="time-item">
+                <span class="time">15:00</span>
+                <div class="subject">컴퓨팅적 사고 <span>정보통신원 301호</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <h3>📅 주요 일정 D-Day</h3>
+            <div class="dday-list">
+              <div class="dday-item"><span class="dday-title">수강신청 정정 마감</span><span class="dday-badge">D-2</span></div>
+              <div class="dday-item"><span class="dday-title">1학기 중간고사</span><span class="dday-badge safe">D-24</span></div>
+              <div class="dday-item"><span class="dday-title">솔뫼 대동제 🎉</span><span class="dday-badge safe">D-45</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box special">
+          <h3>🔗 유용한 사이트 모음</h3>
+
+          <div style="margin-bottom:1.2rem;">
+            <div style="font-size:.78rem;font-weight:700;color:#6366f1;letter-spacing:.06em;margin-bottom:.8rem;">🎓 학교생활</div>
+            <div class="link-grid">
+              <a href="https://everytime.kr" target="_blank" class="link-card">
+                <span class="link-icon">📅</span>
+                <div><div class="link-name">에브리타임</div><div class="link-desc">강의평 · 시간표 · 커뮤니티</div></div>
+              </a>
+              <a href="https://www.kosaf.go.kr" target="_blank" class="link-card">
+                <span class="link-icon">🎁</span>
+                <div><div class="link-name">국가장학금</div><div class="link-desc">한국장학재단 · 장학금 신청</div></div>
+              </a>
+              <a href="https://www.work24.go.kr" target="_blank" class="link-card">
+                <span class="link-icon">💼</span>
+                <div><div class="link-name">고용24</div><div class="link-desc">취업 · 인턴 · 일경험 공고</div></div>
+              </a>
+              <a href="https://www.saramin.co.kr" target="_blank" class="link-card">
+                <span class="link-icon">🔍</span>
+                <div><div class="link-name">잡코리아 / 사람인</div><div class="link-desc">채용공고 · 자기소개서</div></div>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:.78rem;font-weight:700;color:#6366f1;letter-spacing:.06em;margin-bottom:.8rem;">📚 공부 / 과제</div>
+            <div class="link-grid">
+              <a href="https://www.notion.so" target="_blank" class="link-card">
+                <span class="link-icon">📝</span>
+                <div><div class="link-name">노션</div><div class="link-desc">과제 · 일정 · 팀 협업 정리</div></div>
+              </a>
+              <a href="https://www.canva.com" target="_blank" class="link-card">
+                <span class="link-icon">🎨</span>
+                <div><div class="link-name">Canva</div><div class="link-desc">발표자료 · 포스터 무료 제작</div></div>
+              </a>
+              <a href="https://www.overleaf.com" target="_blank" class="link-card">
+                <span class="link-icon">📄</span>
+                <div><div class="link-name">Overleaf</div><div class="link-desc">LaTeX 보고서 · 논문 작성</div></div>
+              </a>
+              <a href="https://lms.gknu.ac.kr/ilos/main/main_form.acl" target="_blank" class="link-card">
+                <span class="link-icon">📖</span>
+                <div><div class="link-name">GKNU LMS</div><div class="link-desc">국립경국대학교 LMS</div></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="map" class="main page-section">
+        <header class="major">
+          <h2>상권 지도</h2>
+          <p>우리 학교 주변의 맛집과 핫플을 한눈에 찾아보세요.</p>
+        </header>
+
+        <div class="area-tabs">
+  <button class="button area-tab active" onclick="switchArea('solmoe', this)">🍱 솔뫼 상권 (정문)</button>
+  <button class="button area-tab" onclick="switchArea('nongol', this)">☕ 논골 상권 (후문)</button>
+</div>
+
+        <div class="filter-bar">
+          <button class="button small filter-btn active" data-cat="all" onclick="applyFilter('all', this)">🔍 전체</button>
+          <button class="button small filter-btn" data-cat="food" onclick="applyFilter('food', this)">🍽️ 식당</button>
+          <button class="button small filter-btn" data-cat="cafe" onclick="applyFilter('cafe', this)">☕ 카페</button>
+          <button class="button small filter-btn" data-cat="pub" onclick="applyFilter('pub', this)">🍺 주점</button>
+          <button class="button small filter-btn" data-cat="etc" onclick="applyFilter('etc', this)">🛒 기타</button>
+        </div>
+
+        <div class="map-wrapper box">
+          <div class="map-left"><div id="kakao-map"></div></div>
+          <div id="place-list" class="map-right"></div>
+        </div>
+      </section>
+
+      <section id="campus-game" class="main page-section">
+        <header class="major">
+          <h2>캠퍼스 건물 맞추기</h2>
+          <p>지도 위에서 아래 건물의 위치를 클릭하세요!</p>
+        </header>
+
+        <!-- 시작 화면 (기본으로 보임) -->
+        <div id="quiz-intro" class="box" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:4rem 2rem; gap:0.5rem;">
+          <div style="font-size:3rem; margin-bottom:0.5rem;">🏃‍♂️</div>
+          <h3 style="margin-bottom:0.5rem; text-align:center; width:100%; display:block;">캠퍼스 지리 마스터에 도전하세요!</h3>
+          <p style="color:#64748b; margin-bottom:2rem; text-align:center;">총 10문제, 각 문제당 10초의 제한 시간이 있습니다.<br>60점 이상이면 합격!</p>
+          <button class="button primary" style="font-size:1.1rem; padding:12px 36px;" onclick="startQuiz()">시작하기</button>
+        </div>
+
+        <!-- 퀴즈 상태바 (시작 전 숨김) -->
+        <div class="quiz-status box" style="display:none; margin-bottom:1.5rem;">
+          <div class="quiz-status-top">
+            <div class="quiz-score-block">
+              <div class="quiz-label">점수</div>
+              <div class="quiz-score" id="q-score">0</div>
+            </div>
+            <div class="quiz-divider"></div>
+            <div class="quiz-progress-block">
+              <div class="quiz-label">문제</div>
+              <div class="quiz-progress" id="q-progress">1 / 10</div>
+            </div>
+            <div class="quiz-divider"></div>
+            <svg id="q-timer-svg" width="52" height="52" viewBox="0 0 52 52">
+              <circle id="q-timer-track" cx="26" cy="26" r="20"/>
+              <circle id="q-timer-fill" cx="26" cy="26" r="20"/>
+              <text id="q-timer-text" x="26" y="26">10</text>
+            </svg>
+            <div class="quiz-question" id="q-question">중앙도서관은 어디에 있을까요?</div>
+            <div class="quiz-btn-group">
+              <button class="button primary" id="q-next-btn" style="display:none;" onclick="nextQuestion()">다음 문제 →</button>
+              <button class="button" onclick="initQuizIntro()">🔄 처음으로</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 정답/오답 팁 -->
+        <div id="q-tip" style="display:none;" class="quiz-tip-box box"></div>
+
+        <!-- 캠퍼스 지도 (시작 전 숨김) -->
+        <div class="quiz-area box" id="quiz-map" style="display:none;" onclick="handleQuizClick(event)">
+          <img id="quiz-img" src="./캠퍼스맵.png" onerror="this.style.display='none'; document.getElementById('quiz-map').style.height='450px';" alt="캠퍼스 지도" draggable="false">
+          <div id="q-marker" class="quiz-marker" style="display:none;"></div>
+          <div id="q-answer-box" class="quiz-answer-area" style="display:none;"></div>
+        </div>
+
+        <!-- 완료 화면 -->
+        <div id="q-complete" class="quiz-complete box" style="display:none;">
+          <div style="font-size:3rem;">🎉</div>
+          <h2>모두 완료했어요!</h2>
+          <p>결과를 확인하세요!</p>
+          <button class="button primary" onclick="resetQuiz()">다시 도전하기</button>
+        </div>
+      </section>
+
+    </div></div><script src="main.js"></script>
+</body>
+</html>
