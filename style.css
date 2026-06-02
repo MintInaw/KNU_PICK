@@ -195,7 +195,7 @@ a { color: var(--primary); text-decoration: none; transition: 0.2s; }
   box-shadow: 0 4px 10px rgba(0,0,0,0.2); transform: translate(-50%, -50%); pointer-events: none;
 }
 .quiz-answer-area {
-  position: absolute; border: 3px dashed #22c55e;
+  position: absolute; border: 3px dashed #0f0481;
   background: rgba(34, 197, 94, 0.15); border-radius: 12px; pointer-events: none;
 }
 .quiz-complete { text-align: center; padding: 3rem; }
