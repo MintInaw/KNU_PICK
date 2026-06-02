@@ -518,6 +518,7 @@ function startTimer() {
   }, 1000);
 }
 
+// ✅ 시간 초과 처리 함수 (이것도 빠져있었습니다!)
 // ✅ 시간 초과 처리 함수
 function handleTimeOut() {
   if (qAnswered) return;
@@ -569,6 +570,14 @@ function loadQuestion() {
 
 /** 지도 클릭 이벤트 처리 */
 function handleQuizClick(e) {
+  // ✅ 좌표 추출 코드 — 다 따면 아래 7줄 삭제
+  const _r = e.currentTarget.getBoundingClientRect();
+  const _x = (((e.clientX - _r.left) / _r.width) * 100).toFixed(1);
+  const _y = (((e.clientY - _r.top) / _r.height) * 100).toFixed(1);
+  const _el = document.getElementById('coord-display');
+  if (_el) { _el.style.display='block'; _el.textContent=`left:${_x}, top:${_y}`; }
+  navigator.clipboard?.writeText(`{ left:${_x}, top:${_y}, width:6, height:6 }`);
+  // ✅ 여기까지
   if (qAnswered) return;
   
   clearInterval(timerInterval);
